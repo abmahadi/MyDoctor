@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">My Doctor</string>
+
+    <string-array name="type_of_doctor">
+        <item>Allergists</item>
+        <item>Anesthesiologist</item>
+        <item>Cardiologists</item>
+        <item>Dermatologist</item>
+        <item>Gastroentetologist</item>
+        <item>General Surgeons</item>
+        <item>Hematogist</item>
+        <item>Medicine Specialist</item>
+        <item>Neurologists</item>
+        <item>Osteopaths</item>
+        <item>Pathologist</item>
+        <item>Plastic Surgeons</item>
+
+
+    </string-array>
+    <string-array name="division">
+        <item>Dhaka</item>
+        <item>Rajshahi</item>
+        <item>Rangpur</item>
+        <item>Barisal</item>
+        <item>Chittagong</item>
+        <item>Khulna</item>
+        <item>Mymensingh</item>
+        <item>Sylhet</item>
+
+
+    </string-array>
+    <string-array name="Dhaka">
+        <item>Dhanmondi</item>
+        <item>Gulshan</item>
+        <item>Uttara</item>
+        <item>Baridhara</item>
+        <item>Mohammadpur</item>
+        <item>Mirpur</item>
+        <item>Shyamoli</item>
+
+    </string-array>
+    <string-array name="Rajshahi">
+        <item>Rajshahi</item>
+        <item>Bogura</item>
+        <item>Natore</item>
+        <item>Pabna</item>
+        <item>Sirajgonj</item>
+        <item>Naogaon</item>
+        <item>Chapainawabganj</item>
+
+    </string-array>
+    <string-array name="Rangpur">
+        <item>Rangpur</item>
+        <item>Dinajpu</item>
+        <item>Thakurgaon</item>
+        <item>Panchagarh</item>
+        <item>Nilphamari</item>
+        <item>Kurigram</item>
+
+
+    </string-array>
+
+    <string-array name="Degrees">
+        <item>MBBS</item>
+        <item>BMBS</item>
+        <item>MBChB</item>
+        <item>MBBCh</item>
+        <item>MD</item>
+        <item>Dr.MuD</item>
+        <item>DO</item>
+        <item>PhD</item>
+        <item>DPhil</item>
+        <item>MCM</item>
+        <item>MPhil</item>
+        <item>MS</item>
+
+
+    </string-array>
+</resources>

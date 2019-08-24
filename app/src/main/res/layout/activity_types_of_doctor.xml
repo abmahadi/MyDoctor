@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".TypesOfDoctor">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Doctors Type"
+            android:textColor="@color/mainColor"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            />
+
+    <Spinner
+        android:id="@+id/spinner_typeOfDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select City"
+        android:textColor="@color/mainColor"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_City"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginBottom="5dp">
+    </Spinner>
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Area"
+        android:textColor="@color/mainColor"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_Area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginBottom="5dp">
+    </Spinner>
+
+
+    <Button
+        android:id="@+id/btn_findDoctor"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Find Doctor"
+        android:textStyle="bold"
+        android:background="@color/mainColor"
+        android:layout_marginTop="5dp"/>
+
+
+
+</LinearLayout>

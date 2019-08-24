@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="10dp"
+    android:layout_height="match_parent"
+    tools:context=".Main2Activity">
+
+    <Button
+        android:id="@+id/btn_doctors_module"
+        android:text="Doctor's Module"
+        android:padding="10dp"
+        android:textAllCaps="false"
+        android:background="@color/mainColor"
+        android:layout_width="0dp"
+        android:layout_marginRight="4dp"
+        android:layout_weight="1"
+        android:layout_height="200dp" />
+    <Button
+        android:id="@+id/btn_patient_module"
+        android:text="Patientest's Module"
+        android:textAllCaps="false"
+        android:background="@color/mainColor"
+        android:padding="10dp"
+        android:layout_marginLeft="4dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="200dp" />
+
+</LinearLayout>
