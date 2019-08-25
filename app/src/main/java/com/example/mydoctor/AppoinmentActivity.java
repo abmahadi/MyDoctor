@@ -49,7 +49,7 @@ public class AppoinmentActivity extends AppCompatActivity {
         init();
         doctorRegistrationNo = getIntent().getExtras().getString("drID");
         drRegistationNo.setText(doctorRegistrationNo);
-       currentUser = mAuth.getCurrentUser().getUid();
+       currentUser = mAuth.getCurrentUser().getEmail();
        currentPatientId.setText(currentUser);
 
 

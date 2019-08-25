@@ -40,35 +40,35 @@ public class TypesOfDoctor extends AppCompatActivity implements AdapterView.OnIt
         typeOfDoctor.setAdapter(adapter_typesOfDoctor);
         typeOfDoctor.setOnItemSelectedListener(this);
 
-        ArrayAdapter adapter_city = ArrayAdapter.createFromResource(this, R.array.division, android.R.layout.simple_spinner_item);
-        citySP.setAdapter(adapter_city);
-
-        citySP.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String itemSelect = city[position];
-
-                Toast.makeText(TypesOfDoctor.this, "Select " + itemSelect, Toast.LENGTH_SHORT).show();
-                if (position == 0) {
-                    ArrayAdapter adapter_Dhaka = ArrayAdapter.createFromResource(TypesOfDoctor.this, R.array.Dhaka, android.R.layout.simple_spinner_item);
-                    areaSP.setAdapter(adapter_Dhaka);
-                }
-                if (position == 1) {
-                    ArrayAdapter adapter_Rajshahi = ArrayAdapter.createFromResource(TypesOfDoctor.this, R.array.Rajshahi, android.R.layout.simple_spinner_item);
-                    areaSP.setAdapter(adapter_Rajshahi);
-                }
-                if (position == 2) {
-                    ArrayAdapter adapter_Rangpur = ArrayAdapter.createFromResource(TypesOfDoctor.this, R.array.Rangpur, android.R.layout.simple_spinner_item);
-                    areaSP.setAdapter(adapter_Rangpur);
-                }
-            }
-
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+//        ArrayAdapter adapter_city = ArrayAdapter.createFromResource(this, R.array.division, android.R.layout.simple_spinner_item);
+//        citySP.setAdapter(adapter_city);
+//
+//        citySP.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                String itemSelect = city[position];
+//
+//                Toast.makeText(TypesOfDoctor.this, "Select " + itemSelect, Toast.LENGTH_SHORT).show();
+//                if (position == 0) {
+//                    ArrayAdapter adapter_Dhaka = ArrayAdapter.createFromResource(TypesOfDoctor.this, R.array.Dhaka, android.R.layout.simple_spinner_item);
+//                    areaSP.setAdapter(adapter_Dhaka);
+//                }
+//                if (position == 1) {
+//                    ArrayAdapter adapter_Rajshahi = ArrayAdapter.createFromResource(TypesOfDoctor.this, R.array.Rajshahi, android.R.layout.simple_spinner_item);
+//                    areaSP.setAdapter(adapter_Rajshahi);
+//                }
+//                if (position == 2) {
+//                    ArrayAdapter adapter_Rangpur = ArrayAdapter.createFromResource(TypesOfDoctor.this, R.array.Rangpur, android.R.layout.simple_spinner_item);
+//                    areaSP.setAdapter(adapter_Rangpur);
+//                }
+//            }
+//
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
 
         findDoctor.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,16 +8,36 @@
     android:padding="10dp"
     tools:context=".DoctorsInfirmationEditActivity">
 
-    <Button
-    android:id="@+id/btn_Doctors_Information"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Doctor's Information"
-    android:textAllCaps="false"
-    android:background="@color/colorPrimary"
-    android:padding="5dp"
-    android:textStyle="bold"
-        android:layout_marginBottom="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/btn_Doctors_Information"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Add Information"
+            android:textAllCaps="false"
+            android:background="@color/colorPrimary"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+        <Button
+            android:id="@+id/btn_Doctors_Appoinment"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Check Appoinments"
+            android:textAllCaps="false"
+            android:background="@color/colorPrimary"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+    </LinearLayout>
 
 
 

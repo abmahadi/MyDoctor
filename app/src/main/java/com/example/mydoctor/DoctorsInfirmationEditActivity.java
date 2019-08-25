@@ -8,7 +8,8 @@ import android.widget.Button;
 
 public class DoctorsInfirmationEditActivity extends AppCompatActivity {
 
-    Button doctorsInformation;
+    private Button doctorsInformation;
+    private Button doctorsAppoinments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +17,7 @@ public class DoctorsInfirmationEditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctors_infirmation_edit);
 
         doctorsInformation=findViewById(R.id.btn_Doctors_Information);
+        doctorsAppoinments =findViewById(R.id.btn_Doctors_Appoinment);
 
 
         doctorsInformation.setOnClickListener(new View.OnClickListener() {
@@ -25,9 +27,22 @@ public class DoctorsInfirmationEditActivity extends AppCompatActivity {
             }
         });
 
+        doctorsAppoinments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                openAppointmentListActivity();
+            }
+        });
+
 
     }
 
+    private void openAppointmentListActivity() {
+
+        Intent intent= new Intent(this,AppoinmentListActivity.class);
+        startActivity(intent);
+    }
 
 
     public void openDoctorsInformationActivity(){
