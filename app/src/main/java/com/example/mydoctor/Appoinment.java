@@ -8,13 +8,13 @@ public class Appoinment {
     private String mobilenumber;
     private String date;
     private String time;
-    private String appoinmentStatus;
+    private boolean appoinmentStatus;
 
 
     public Appoinment() {
     }
 
-    public Appoinment(String appoinmentId, String drId, String userId, String mobilenumber, String date, String time, String appoinmentStatus) {
+    public Appoinment(String appoinmentId, String drId, String userId, String mobilenumber, String date, String time, boolean appoinmentStatus) {
         this.appoinmentId = appoinmentId;
         this.drId = drId;
         this.userId = userId;
@@ -72,11 +72,11 @@ public class Appoinment {
         this.time = time;
     }
 
-    public String getAppoinmentStatus() {
+    public boolean getAppoinmentStatus() {
         return appoinmentStatus;
     }
 
-    public void setAppoinmentStatus(String appoinmentStatus) {
+    public void setAppoinmentStatus(boolean appoinmentStatus) {
         this.appoinmentStatus = appoinmentStatus;
     }
 }

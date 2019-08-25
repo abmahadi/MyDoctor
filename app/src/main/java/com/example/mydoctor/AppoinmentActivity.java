@@ -32,7 +32,7 @@ public class AppoinmentActivity extends AppCompatActivity {
     private LinearLayout apoinmentDate,apoinmentTime;
     private TextView dateTV,currentPatientId,timeTV;
     private EditText mobilenumberPatient;
-    private String mobilenumber;
+
 
 
     private FirebaseAuth mAuth;
@@ -98,18 +98,20 @@ public class AppoinmentActivity extends AppCompatActivity {
 
          String drId=doctorRegistrationNo;
          String userId=currentUser;
-         String date="10-12-2019";
-         String appoinmentStatus="ok";
-         String remarks="ok";
+         String mobileNumber =mobilenumberPatient.getText().toString();
+         String date=dateTV.getText().toString();
+         String time =timeTV.getText().toString();
+         boolean appoinmentStatus=false;
 
 
 
 
 
-        Appoinment appoinmentData= new Appoinment(appoinmentId,drId,userId,date,appoinmentStatus,remarks);
+
+        Appoinment appoinmentData= new Appoinment(appoinmentId,drId,userId,mobileNumber,date,time,appoinmentStatus);
         databaseReference.child(appoinmentId).setValue(appoinmentData);
 
-        Toast.makeText(this, "data saved", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Appointment Request Send", Toast.LENGTH_SHORT).show();
 
     }
     private void currentDatePicker() {
