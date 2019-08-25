@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class TypesOfDoctor extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner typeOfDoctor;
-    Spinner citySP, areaSP;
+   // Spinner citySP, areaSP;
     Button findDoctor;
 
     @Override
@@ -24,8 +24,8 @@ public class TypesOfDoctor extends AppCompatActivity implements AdapterView.OnIt
         setContentView(R.layout.activity_types_of_doctor);
 
         typeOfDoctor = (Spinner) findViewById(R.id.spinner_typeOfDoctor);
-        citySP = (Spinner) findViewById(R.id.spinner_City);
-        areaSP = (Spinner) findViewById(R.id.spinner_Area);
+//        citySP = (Spinner) findViewById(R.id.spinner_City);
+//        areaSP = (Spinner) findViewById(R.id.spinner_Area);
 
         findDoctor = (Button) findViewById(R.id.btn_findDoctor);
 

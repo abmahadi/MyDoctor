@@ -48,10 +48,12 @@ public class AppoinmentListActivity extends AppCompatActivity {
                     String currentDrID= mAuth.getUid();
                     String appoinmentDrID =appoinment.getDrId();
 
-                    if(currentDrID == appoinmentDrID)
-                    {
-                        appoinmentArrayList.add(appoinment);
-                    }
+                    appoinmentArrayList.add(appoinment);
+
+//                    if(currentDrID == appoinmentDrID)
+//                    {
+//
+//                    }
 
                     appoimentAdapter = new AppoimentAdapter(AppoinmentListActivity.this,appoinmentArrayList);
                     appoinmentRV.setAdapter(appoimentAdapter);
