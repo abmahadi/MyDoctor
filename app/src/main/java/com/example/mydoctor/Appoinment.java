@@ -5,17 +5,23 @@ public class Appoinment {
     private String appoinmentId;
     private String drId;
     private String userId;
+    private String mobilenumber;
     private String date;
+    private String time;
     private String appoinmentStatus;
-    private String remarks;
 
-    public Appoinment(String appoinmentId, String drId, String userId, String date, String appoinmentStatus, String remarks) {
+
+    public Appoinment() {
+    }
+
+    public Appoinment(String appoinmentId, String drId, String userId, String mobilenumber, String date, String time, String appoinmentStatus) {
         this.appoinmentId = appoinmentId;
         this.drId = drId;
         this.userId = userId;
+        this.mobilenumber = mobilenumber;
         this.date = date;
+        this.time = time;
         this.appoinmentStatus = appoinmentStatus;
-        this.remarks = remarks;
     }
 
     public String getAppoinmentId() {
@@ -42,6 +48,14 @@ public class Appoinment {
         this.userId = userId;
     }
 
+    public String getMobilenumber() {
+        return mobilenumber;
+    }
+
+    public void setMobilenumber(String mobilenumber) {
+        this.mobilenumber = mobilenumber;
+    }
+
     public String getDate() {
         return date;
     }
@@ -50,19 +64,19 @@ public class Appoinment {
         this.date = date;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     public String getAppoinmentStatus() {
         return appoinmentStatus;
     }
 
     public void setAppoinmentStatus(String appoinmentStatus) {
         this.appoinmentStatus = appoinmentStatus;
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
     }
 }

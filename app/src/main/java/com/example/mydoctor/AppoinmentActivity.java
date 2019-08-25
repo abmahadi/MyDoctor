@@ -8,6 +8,7 @@ package com.example.mydoctor;
         import android.view.View;
         import android.widget.Button;
         import android.widget.DatePicker;
+        import android.widget.EditText;
         import android.widget.LinearLayout;
         import android.widget.TextView;
         import android.widget.TimePicker;
@@ -30,6 +31,10 @@ public class AppoinmentActivity extends AppCompatActivity {
     private TextView drRegistationNo;
     private LinearLayout apoinmentDate,apoinmentTime;
     private TextView dateTV,currentPatientId,timeTV;
+    private EditText mobilenumberPatient;
+    private String mobilenumber;
+
+
     private FirebaseAuth mAuth;
     private String currentUser;
 
@@ -82,6 +87,7 @@ public class AppoinmentActivity extends AppCompatActivity {
         dateTV = findViewById(R.id.dateTVApoinment);
         timeTV = findViewById(R.id.timeTVApoinment);
         currentPatientId =findViewById(R.id.currentPatientId);
+        mobilenumberPatient =findViewById(R.id.mobilenumberPatient);
 
         mAuth =FirebaseAuth.getInstance();
     }
