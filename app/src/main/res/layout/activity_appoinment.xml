@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Patient ID  :"/>
         <TextView
+            android:id="@+id/currentPatientId"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
@@ -46,13 +47,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:id="@+id/dateLayoutApoinment"
+        android:padding="10dp"
+        android:background="@color/date_background">
 
         <TextView
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Date         :"/>
         <TextView
+            android:id="@+id/dateTVApoinment"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/timeLayoutApoinment"
+        android:padding="10dp"
+        android:background="@color/date_background">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Time         :"/>
+        <TextView
+            android:id="@+id/timeTVApoinment"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
