@@ -56,6 +56,8 @@ public class DoctorListRecyclerViewActivity extends Activity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(DoctorListRecyclerViewActivity.this, "Opsss.... Something is wrong", Toast.LENGTH_SHORT).show();
+
+
             }
         });
     }
