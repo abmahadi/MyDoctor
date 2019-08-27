@@ -1,6 +1,7 @@
 package com.example.mydoctor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -30,12 +31,30 @@ public class AppoimentAdapter extends RecyclerView.Adapter<AppoimentAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Appoinment currentApoinment =appoinmentArrayList.get(i);
+        final Appoinment currentApoinment =appoinmentArrayList.get(i);
 
         viewHolder.email.setText(currentApoinment.getUserId());
         viewHolder.mobileNumber.setText(currentApoinment.getMobilenumber());
         viewHolder.date.setText(currentApoinment.getDate());
         viewHolder.time.setText(currentApoinment.getTime());
+
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,AppoinmentDetailsActivity.class);
+
+                intent.putExtra("email",currentApoinment.getUserId());
+                intent.putExtra("mobileNumber",currentApoinment.getMobilenumber());
+                intent.putExtra("date",currentApoinment.getDate());
+                intent.putExtra("time",currentApoinment.getTime());
+
+
+                context.startActivity(intent);
+
+
+            }
+        });
 
     }
 

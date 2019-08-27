@@ -109,7 +109,7 @@ public class AppoinmentActivity extends AppCompatActivity {
 
 
         Appoinment appoinmentData= new Appoinment(appoinmentId,drId,userId,mobileNumber,date,time,appoinmentStatus);
-        databaseReference.child(appoinmentId).setValue(appoinmentData);
+        databaseReference.child(drId).child(appoinmentId).setValue(appoinmentData);
 
         Toast.makeText(this, "Appointment Request Send", Toast.LENGTH_SHORT).show();
 

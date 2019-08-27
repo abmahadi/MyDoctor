@@ -25,6 +25,27 @@
             android:textStyle="bold"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/doctorIdEt"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:hint="Enter Your Reg.Number"
+            android:layout_gravity="center"
+
+
+            android:inputType="number"
+            />
         <Button
             android:id="@+id/btn_Doctors_Appoinment"
             android:layout_width="0dp"

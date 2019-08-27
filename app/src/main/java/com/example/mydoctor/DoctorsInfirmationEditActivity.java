@@ -5,11 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class DoctorsInfirmationEditActivity extends AppCompatActivity {
 
     private Button doctorsInformation;
     private Button doctorsAppoinments;
+    private EditText drIdEt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,7 @@ public class DoctorsInfirmationEditActivity extends AppCompatActivity {
 
         doctorsInformation=findViewById(R.id.btn_Doctors_Information);
         doctorsAppoinments =findViewById(R.id.btn_Doctors_Appoinment);
+        drIdEt =findViewById(R.id.doctorIdEt);
 
 
         doctorsInformation.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +44,9 @@ public class DoctorsInfirmationEditActivity extends AppCompatActivity {
     private void openAppointmentListActivity() {
 
         Intent intent= new Intent(this,AppoinmentListActivity.class);
+
+        String drId = drIdEt.getText().toString();
+        intent.putExtra("drId",drId);
         startActivity(intent);
     }
 

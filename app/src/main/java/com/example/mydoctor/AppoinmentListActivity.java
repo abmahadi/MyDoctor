@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +22,7 @@ public class AppoinmentListActivity extends AppCompatActivity {
     private AppoimentAdapter appoimentAdapter;
     private ArrayList<Appoinment> appoinmentArrayList;
     private FirebaseAuth mAuth;
+    String currentDrID;
 
     private DatabaseReference reference;
 
@@ -31,6 +33,8 @@ public class AppoinmentListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_appoinment_list);
 
         init();
+         currentDrID = getIntent().getStringExtra("drId");
+
         configRecycler();
     }
 
@@ -38,24 +42,25 @@ public class AppoinmentListActivity extends AppCompatActivity {
 
         appoinmentRV.setLayoutManager(new LinearLayoutManager(this));
 
-        reference.addValueEventListener(new ValueEventListener() {
+
+        DatabaseReference apoinmentReferance = reference.child("AppoinmentData").child(currentDrID);
+        apoinmentReferance.keepSynced(true);
+
+        apoinmentReferance.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
-                {
-                    Appoinment appoinment =dataSnapshot1.getValue(Appoinment.class);
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    Appoinment appoinment = dataSnapshot1.getValue(Appoinment.class);
 
-                    String currentDrID= mAuth.getUid();
-                    String appoinmentDrID =appoinment.getDrId();
+
+                    String appoinmentDrID = appoinment.getDrId();
 
                     appoinmentArrayList.add(appoinment);
-
-//                    if(currentDrID == appoinmentDrID)
-//                    {
+//                    if (currentDrID.equals(appoinmentDrID)) {
 //
 //                    }
 
-                    appoimentAdapter = new AppoimentAdapter(AppoinmentListActivity.this,appoinmentArrayList);
+                    appoimentAdapter = new AppoimentAdapter(AppoinmentListActivity.this, appoinmentArrayList);
                     appoinmentRV.setAdapter(appoimentAdapter);
                 }
             }
@@ -70,10 +75,12 @@ public class AppoinmentListActivity extends AppCompatActivity {
     private void init() {
 
         appoinmentRV = findViewById(R.id.appoinmentListRV);
-        appoinmentArrayList= new ArrayList<>();
+        appoinmentArrayList = new ArrayList<>();
+        mAuth = FirebaseAuth.getInstance();
 
-        reference = FirebaseDatabase.getInstance().getReference().child("AppoinmentData");
+       reference = FirebaseDatabase.getInstance().getReference();
+
         reference.keepSynced(true);
-        mAuth =FirebaseAuth.getInstance();
+
     }
 }

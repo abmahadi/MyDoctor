@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AppoinmentListActivity"></activity>
+        <activity android:name=".AppoinmentDetailsActivity"></activity>
+        <activity android:name=".AppoinmentListActivity" />
         <activity android:name=".DoctorDetailsActivity" />
         <activity android:name=".AppoinmentActivity" />
         <activity android:name=".Recycler" />

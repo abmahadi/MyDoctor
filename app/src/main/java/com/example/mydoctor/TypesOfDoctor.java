@@ -17,6 +17,7 @@ public class TypesOfDoctor extends AppCompatActivity implements AdapterView.OnIt
     Spinner typeOfDoctor;
    // Spinner citySP, areaSP;
     Button findDoctor;
+    private String specilization;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class TypesOfDoctor extends AppCompatActivity implements AdapterView.OnIt
         ArrayAdapter adapter_typesOfDoctor = ArrayAdapter.createFromResource(this, R.array.type_of_doctor, android.R.layout.simple_spinner_item);
         typeOfDoctor.setAdapter(adapter_typesOfDoctor);
         typeOfDoctor.setOnItemSelectedListener(this);
+
 
 //        ArrayAdapter adapter_city = ArrayAdapter.createFromResource(this, R.array.division, android.R.layout.simple_spinner_item);
 //        citySP.setAdapter(adapter_city);
