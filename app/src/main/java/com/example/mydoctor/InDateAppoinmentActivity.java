@@ -1,4 +1,4 @@
-package com.example.mydoctor.RecyclerView;
+package com.example.mydoctor;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.mydoctor.Adapter.AppoinmentAdapter;
 import com.example.mydoctor.Class.Appoinment;
-import com.example.mydoctor.R;
+import com.example.mydoctor.RecyclerView.AppoinmentListActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,34 +18,33 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class AppoinmentListActivity extends AppCompatActivity {
+public class InDateAppoinmentActivity extends AppCompatActivity {
 
-    private RecyclerView appoinmentRV;
+    private RecyclerView inDateRV;
     private AppoinmentAdapter appoinmentAdapter;
-    private ArrayList<Appoinment> appoinmentArrayList;
-    private FirebaseAuth mAuth;
-    String currentDrID;
-
+    private ArrayList<Appoinment> appoinments;
     private DatabaseReference reference;
+    private String date;
+    private FirebaseAuth mAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_appoinment_list);
+        setContentView(R.layout.activity_in_date_appoinment);
 
         init();
-         currentDrID = getIntent().getStringExtra("drId");
+        date = getIntent().getStringExtra("date");
 
         configRecycler();
     }
 
     private void configRecycler() {
 
-        appoinmentRV.setLayoutManager(new LinearLayoutManager(this));
+        inDateRV.setLayoutManager(new LinearLayoutManager(this));
 
 
-        DatabaseReference apoinmentReferance = reference.child("AppoinmentData").child(currentDrID);
+        DatabaseReference apoinmentReferance = reference.child("ApprovedAppoinmentData").child(mAuth.getUid()).child(date);
         apoinmentReferance.keepSynced(true);
 
         apoinmentReferance.addValueEventListener(new ValueEventListener() {
@@ -55,15 +54,15 @@ public class AppoinmentListActivity extends AppCompatActivity {
                     Appoinment appoinment = dataSnapshot1.getValue(Appoinment.class);
 
 
-                    String appoinmentDrID = appoinment.getDrId();
 
-                    appoinmentArrayList.add(appoinment);
+
+                    appoinments.add(appoinment);
 //                    if (currentDrID.equals(appoinmentDrID)) {
 //
 //                    }
 
-                    appoinmentAdapter = new AppoinmentAdapter(AppoinmentListActivity.this, appoinmentArrayList);
-                    appoinmentRV.setAdapter(appoinmentAdapter);
+                    appoinmentAdapter = new AppoinmentAdapter(InDateAppoinmentActivity.this, appoinments);
+                    inDateRV.setAdapter(appoinmentAdapter);
                 }
             }
 
@@ -76,11 +75,11 @@ public class AppoinmentListActivity extends AppCompatActivity {
 
     private void init() {
 
-        appoinmentRV = findViewById(R.id.appoinmentListRV);
-        appoinmentArrayList = new ArrayList<>();
-        mAuth = FirebaseAuth.getInstance();
+        inDateRV = findViewById(R.id.inDateAppoinmentRV);
+        appoinments = new ArrayList<>();
+       mAuth = FirebaseAuth.getInstance();
 
-       reference = FirebaseDatabase.getInstance().getReference();
+        reference = FirebaseDatabase.getInstance().getReference();
 
         reference.keepSynced(true);
 

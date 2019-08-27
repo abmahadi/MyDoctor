@@ -2,21 +2,70 @@ package com.example.mydoctor.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.mydoctor.Class.Appoinment;
 import com.example.mydoctor.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AppoinmentDetailsActivity extends AppCompatActivity {
 
     private TextView email,mobileNumber,date,time;
+    private Button addBtn,deleteBtn;
+    private String appoinmentId,drId;
+    private FirebaseAuth mAuth;
+
+    private DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appoinment_details);
 
         init();
+        appoinmentId = getIntent().getStringExtra("id");
+        drId = getIntent().getStringExtra("drId");
 
         setText();
+
+
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                reference.child("AppoinmentData").child(drId).child(appoinmentId).setValue(null);
+
+                Toast.makeText(AppoinmentDetailsActivity.this, "Appoinment Delete", Toast.LENGTH_SHORT).show();
+            }
+        });
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String currentAppoinmentId=reference.push().getKey();
+
+
+
+                boolean appoinmentStatus=true;
+
+                String id= mAuth.getUid();
+
+
+
+
+
+
+                Appoinment appoinmentData= new Appoinment(currentAppoinmentId,drId,email.getText().toString(),mobileNumber.getText().toString(),date.getText().toString(),time.getText().toString(),appoinmentStatus);
+                reference.child("ApprovedAppoinmentData").child(id).child(date.getText().toString()).child(appoinmentId).setValue(appoinmentData);
+                reference.child("AppoinmentData").child(drId).child(appoinmentId).setValue(null);
+
+                Toast.makeText(AppoinmentDetailsActivity.this, "Appoinment Approve", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     private void setText() {
@@ -33,6 +82,9 @@ public class AppoinmentDetailsActivity extends AppCompatActivity {
         mobileNumber = findViewById(R.id.mobilenumberPatient_aad);
         date = findViewById(R.id.dateTV_aad);
         time = findViewById(R.id.timeTV_aad);
+        addBtn =findViewById(R.id.appoinmentAddBtn);
+        deleteBtn =findViewById(R.id.appoinmentDeleteBtn);
+        reference = FirebaseDatabase.getInstance().getReference();
 
 
     }

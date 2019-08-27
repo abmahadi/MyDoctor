@@ -15,12 +15,12 @@ import com.example.mydoctor.R;
 
 import java.util.ArrayList;
 
-public class AppoimentAdapter extends RecyclerView.Adapter<AppoimentAdapter.ViewHolder> {
+public class AppoinmentAdapter extends RecyclerView.Adapter<AppoinmentAdapter.ViewHolder> {
 
     private Context context;
     private ArrayList<Appoinment> appoinmentArrayList;
 
-    public AppoimentAdapter(Context context, ArrayList<Appoinment> appoinmentArrayList) {
+    public AppoinmentAdapter(Context context, ArrayList<Appoinment> appoinmentArrayList) {
         this.context = context;
         this.appoinmentArrayList = appoinmentArrayList;
     }
@@ -47,6 +47,9 @@ public class AppoimentAdapter extends RecyclerView.Adapter<AppoimentAdapter.View
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, AppoinmentDetailsActivity.class);
+
+                intent.putExtra("id",currentApoinment.getAppoinmentId());
+                intent.putExtra("drId",currentApoinment.getDrId());
 
                 intent.putExtra("email",currentApoinment.getUserId());
                 intent.putExtra("mobileNumber",currentApoinment.getMobilenumber());
