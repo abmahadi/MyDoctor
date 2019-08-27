@@ -1,9 +1,6 @@
-package com.example.mydoctor;
+package com.example.mydoctor.Activity;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,12 +11,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mydoctor.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class PatientLoginActivity extends AppCompatActivity {
 
 
 
@@ -108,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(MainActivity.this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PatientLoginActivity.this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -116,12 +114,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openPatientSignupActivity(){
-        Intent intent =new Intent(this,PatientSignup.class);
+        Intent intent =new Intent(this, PatientSignupActivity.class);
         startActivity(intent);
     }
 
     public void openTypesOfDoctor(){
-        Intent intent= new Intent(this, TypesOfDoctor.class);
+        Intent intent= new Intent(this, DoctorFindActivity.class);
         startActivity(intent);
     }
 }

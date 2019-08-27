@@ -1,4 +1,4 @@
-package com.example.mydoctor;
+package com.example.mydoctor.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mydoctor.Class.Doctor;
+import com.example.mydoctor.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -157,8 +159,8 @@ public class DoctorsInformationActivity extends AppCompatActivity implements Ada
 
 
 
-        DoctorsData doctorsData= new DoctorsData(id,fname,lname,specilization,degree,City,Area,StreetAddress,startTime,EndTime,special);
-        databaseReference.child(id).setValue(doctorsData);
+        Doctor doctor = new Doctor(id,fname,lname,specilization,degree,City,Area,StreetAddress,startTime,EndTime,special);
+        databaseReference.child(id).setValue(doctor);
 
         Toast.makeText(this, "data saved", Toast.LENGTH_SHORT).show();
 

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:padding="10dp"
 
-    tools:context=".MainActivity">
+    tools:context=".Activity.PatientLoginActivity">
     
     <ImageView
         android:src="@drawable/dr_image"

@@ -1,10 +1,9 @@
-package com.example.mydoctor;
+package com.example.mydoctor.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,7 +11,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TypesOfDoctor extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import com.example.mydoctor.RecyclerView.DoctorListRecyclerViewActivity;
+import com.example.mydoctor.R;
+
+public class DoctorFindActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner typeOfDoctor;
    // Spinner citySP, areaSP;
@@ -50,17 +52,17 @@ public class TypesOfDoctor extends AppCompatActivity implements AdapterView.OnIt
 //            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 //                String itemSelect = city[position];
 //
-//                Toast.makeText(TypesOfDoctor.this, "Select " + itemSelect, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(DoctorFindActivity.this, "Select " + itemSelect, Toast.LENGTH_SHORT).show();
 //                if (position == 0) {
-//                    ArrayAdapter adapter_Dhaka = ArrayAdapter.createFromResource(TypesOfDoctor.this, R.array.Dhaka, android.R.layout.simple_spinner_item);
+//                    ArrayAdapter adapter_Dhaka = ArrayAdapter.createFromResource(DoctorFindActivity.this, R.array.Dhaka, android.R.layout.simple_spinner_item);
 //                    areaSP.setAdapter(adapter_Dhaka);
 //                }
 //                if (position == 1) {
-//                    ArrayAdapter adapter_Rajshahi = ArrayAdapter.createFromResource(TypesOfDoctor.this, R.array.Rajshahi, android.R.layout.simple_spinner_item);
+//                    ArrayAdapter adapter_Rajshahi = ArrayAdapter.createFromResource(DoctorFindActivity.this, R.array.Rajshahi, android.R.layout.simple_spinner_item);
 //                    areaSP.setAdapter(adapter_Rajshahi);
 //                }
 //                if (position == 2) {
-//                    ArrayAdapter adapter_Rangpur = ArrayAdapter.createFromResource(TypesOfDoctor.this, R.array.Rangpur, android.R.layout.simple_spinner_item);
+//                    ArrayAdapter adapter_Rangpur = ArrayAdapter.createFromResource(DoctorFindActivity.this, R.array.Rangpur, android.R.layout.simple_spinner_item);
 //                    areaSP.setAdapter(adapter_Rangpur);
 //                }
 //            }
@@ -75,7 +77,7 @@ public class TypesOfDoctor extends AppCompatActivity implements AdapterView.OnIt
         findDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(TypesOfDoctor.this, "Doctor Finding", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DoctorFindActivity.this, "Doctor Finding", Toast.LENGTH_SHORT).show();
                 openRecycler();
 
 
@@ -97,7 +99,7 @@ public class TypesOfDoctor extends AppCompatActivity implements AdapterView.OnIt
     }
 
     public void openRecycler() {
-        Intent intent = new Intent(this, Recycler.class);
+        Intent intent = new Intent(this, DoctorListRecyclerViewActivity.class);
         startActivity(intent);
     }
 }

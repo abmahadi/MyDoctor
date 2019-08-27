@@ -9,25 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AppoinmentDetailsActivity"></activity>
-        <activity android:name=".AppoinmentListActivity" />
-        <activity android:name=".DoctorDetailsActivity" />
-        <activity android:name=".AppoinmentActivity" />
-        <activity android:name=".Recycler" />
-        <activity android:name=".DoctorsInformationActivity" />
-        <activity android:name=".DoctorsInfirmationEditActivity" />
-        <activity android:name=".DoctorSignInActivity" />
-        <activity android:name=".DoctorsLoginActivity" />
-        <activity android:name=".Main2Activity">
+        <activity android:name=".Activity.AppoinmentDetailsActivity"></activity>
+        <activity android:name=".RecyclerView.AppoinmentListActivity" />
+        <activity android:name=".Activity.DoctorDetailsActivity" />
+        <activity android:name=".Activity.AppoinmentActivity" />
+        <activity android:name=".RecyclerView.DoctorListRecyclerViewActivity" />
+        <activity android:name=".Activity.DoctorsInformationActivity" />
+        <activity android:name=".Activity.DoctorsMenuActivity" />
+        <activity android:name=".Activity.DoctorSignInActivity" />
+        <activity android:name=".Activity.DoctorsLoginActivity" />
+        <activity android:name=".Activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TypesOfDoctor" />
-        <activity android:name=".PatientSignup" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Activity.DoctorFindActivity" />
+        <activity android:name=".Activity.PatientSignupActivity" />
+        <activity android:name=".Activity.PatientLoginActivity" />
     </application>
 
 </manifest>

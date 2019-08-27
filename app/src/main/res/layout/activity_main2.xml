@@ -7,7 +7,7 @@
     android:gravity="center"
     android:padding="10dp"
     android:layout_height="match_parent"
-    tools:context=".Main2Activity">
+    tools:context=".Activity.HomeActivity">
 
     <Button
         android:id="@+id/btn_doctors_module"

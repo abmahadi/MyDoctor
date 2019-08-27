@@ -1,4 +1,4 @@
-package com.example.mydoctor;
+package com.example.mydoctor.Activity;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.mydoctor.Class.Patientest;
+import com.example.mydoctor.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -17,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class PatientSignup extends AppCompatActivity {
+public class PatientSignupActivity extends AppCompatActivity {
 
    private Button btnSignUp;
    private EditText txt_fname, txt_lname,  txt_password,  txt_phoneNumber, txt_email;
@@ -34,7 +36,7 @@ public class PatientSignup extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("PatientestData");
+        databaseReference= FirebaseDatabase.getInstance().getReference("Patientest");
 
 
 
@@ -98,16 +100,16 @@ public class PatientSignup extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar_patentSignUp.setVisibility(View.GONE);
                 if (task.isSuccessful()) {
-                    Toast.makeText(PatientSignup.this, "Register is successfull", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PatientSignupActivity.this, "Register is successfull", Toast.LENGTH_SHORT).show();
 
                 } else {
                     if(task.getException() instanceof FirebaseAuthUserCollisionException)
                     {
-                        Toast.makeText(PatientSignup.this, "User is already Registered", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PatientSignupActivity.this, "User is already Registered", Toast.LENGTH_SHORT).show();
                     }
                     else
 
-                    Toast.makeText(PatientSignup.this, "Error :"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PatientSignupActivity.this, "Error :"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -125,8 +127,8 @@ public class PatientSignup extends AppCompatActivity {
         String phonenumber= txt_phoneNumber.getText().toString().trim();
         String email= txt_email.getText().toString().trim();
 
-      PatientestData patientestData= new PatientestData(id,fname,lname,email,phonenumber);
-      databaseReference.child(id).setValue(patientestData);
+      Patientest patientest = new Patientest(id,fname,lname,email,phonenumber);
+      databaseReference.child(id).setValue(patientest);
 
         Toast.makeText(this, "data saved", Toast.LENGTH_SHORT).show();
 

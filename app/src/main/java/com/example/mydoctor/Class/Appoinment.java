@@ -1,4 +1,4 @@
-package com.example.mydoctor;
+package com.example.mydoctor.Class;
 
 public class Appoinment {
 

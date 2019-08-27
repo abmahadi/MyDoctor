@@ -1,4 +1,4 @@
-package com.example.mydoctor;
+package com.example.mydoctor.Activity;
 
         import android.app.DatePickerDialog;
         import android.app.TimePickerDialog;
@@ -14,6 +14,8 @@ package com.example.mydoctor;
         import android.widget.TimePicker;
         import android.widget.Toast;
 
+        import com.example.mydoctor.Class.Appoinment;
+        import com.example.mydoctor.R;
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.database.DatabaseReference;
         import com.google.firebase.database.FirebaseDatabase;

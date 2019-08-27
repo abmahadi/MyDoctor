@@ -1,4 +1,4 @@
-package com.example.mydoctor;
+package com.example.mydoctor.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.mydoctor.Activity.AppoinmentDetailsActivity;
+import com.example.mydoctor.Class.Appoinment;
+import com.example.mydoctor.R;
 
 import java.util.ArrayList;
 
@@ -42,7 +46,7 @@ public class AppoimentAdapter extends RecyclerView.Adapter<AppoimentAdapter.View
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,AppoinmentDetailsActivity.class);
+                Intent intent = new Intent(context, AppoinmentDetailsActivity.class);
 
                 intent.putExtra("email",currentApoinment.getUserId());
                 intent.putExtra("mobileNumber",currentApoinment.getMobilenumber());
