@@ -25,6 +25,7 @@ public class DoctorListRecyclerViewActivity extends Activity {
    private RecyclerView recyclerView;
    private ArrayList<Doctor> list;
    private DoctorAdapter doctorAdapter;
+   private String doctorSpecilazation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +35,10 @@ public class DoctorListRecyclerViewActivity extends Activity {
 
         recyclerView.setLayoutManager( new LinearLayoutManager(DoctorListRecyclerViewActivity.this));
 
+        doctorSpecilazation=getIntent().getStringExtra("specilization");
 
-        reference = FirebaseDatabase.getInstance().getReference().child("DoctorData");
+
+        reference = FirebaseDatabase.getInstance().getReference().child("DoctorData").child(doctorSpecilazation);
         reference.keepSynced(true);
         reference.addValueEventListener(new ValueEventListener() {
             @Override

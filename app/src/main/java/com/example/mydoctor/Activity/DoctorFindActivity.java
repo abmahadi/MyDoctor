@@ -100,6 +100,8 @@ public class DoctorFindActivity extends AppCompatActivity implements AdapterView
 
     public void openRecycler() {
         Intent intent = new Intent(this, DoctorListRecyclerViewActivity.class);
+        specilization =typeOfDoctor.getSelectedItem().toString();
+        intent.putExtra("specilization",specilization);
         startActivity(intent);
     }
 }

@@ -160,7 +160,7 @@ public class DoctorsInformationActivity extends AppCompatActivity implements Ada
 
 
         Doctor doctor = new Doctor(id,fname,lname,specilization,degree,City,Area,StreetAddress,startTime,EndTime,special);
-        databaseReference.child(id).setValue(doctor);
+        databaseReference.child(specilization).push().setValue(doctor);
 
         Toast.makeText(this, "data saved", Toast.LENGTH_SHORT).show();
 
