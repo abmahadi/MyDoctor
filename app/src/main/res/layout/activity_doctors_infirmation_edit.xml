@@ -35,17 +35,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-        <EditText
-            android:id="@+id/doctorIdEt"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="wrap_content"
-            android:hint="Enter Your Reg.Number"
-            android:layout_gravity="center"
 
-
-            android:inputType="number"
-            />
         <Button
             android:id="@+id/btn_Doctors_Appoinment"
             android:layout_width="0dp"
@@ -65,7 +55,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-        <EditText
+        <TextView
             android:id="@+id/dateET"
             android:layout_width="0dp"
             android:layout_weight="2"
@@ -75,13 +65,14 @@
 
 
 
+
             />
         <Button
             android:id="@+id/btn_Doctors_Appoinment_Date"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Check Unapproved Appoinments"
+            android:text="Check  Appoinments"
             android:textAllCaps="false"
             android:background="@color/colorPrimary"
             android:padding="5dp"

@@ -122,21 +122,22 @@
             android:layout_marginBottom="3dp"
             android:layout_gravity="center_horizontal"/>
 
-        <EditText
+        <TextView
             android:id="@+id/et_startTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_margin="5dp"
             android:hint="Start time"
-            android:inputType="time" />
+            android:background="@color/date_background" />
 
-        <EditText
+        <TextView
             android:id="@+id/et_endTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:background="@color/date_background"
+            android:layout_margin="5dp"
             android:hint="End time"
-            android:inputType="time" />
+             />
 
         <EditText
             android:id="@+id/et_SpecialNotice"

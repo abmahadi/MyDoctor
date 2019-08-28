@@ -24,6 +24,8 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     private String endTime;
     private String specialNotice;
 
+    private String doctorId;
+
     private TextView drID,drName,drSpecilazitaion,drDegree,drCityAreaStreet,drTime,drSpecialNotice;
 
     private Button checkID,appoinment;
@@ -49,6 +51,8 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             endTime = getIntent().getStringExtra("endTime");
             specialNotice = getIntent().getStringExtra("specialNotice");
 
+            doctorId=getIntent().getStringExtra("doctorId");
+
             drID.setText("ID : "+doctorRegistrationNo);
             drName.setText("Name               : "+firstName+" "+lastName);
             drSpecilazitaion.setText("Specialization  : "+specialization);
@@ -71,6 +75,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent =new Intent(DoctorDetailsActivity.this, AppoinmentActivity.class);
                 intent.putExtra("drID",doctorRegistrationNo);
+                intent.putExtra("doctorId",doctorId);
                 startActivity(intent);
             }
         });

@@ -111,7 +111,7 @@ public class DoctorsLoginActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(DoctorsLoginActivity.this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DoctorsLoginActivity.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
             }

@@ -1,7 +1,9 @@
 package com.example.mydoctor.Activity;
 
+import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,21 +12,28 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.mydoctor.Class.Doctor;
 import com.example.mydoctor.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 public class DoctorsInformationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    EditText doctorRegistrationNo, doctorFirstName,doctorLastName;
-    Spinner spinnerSpecialization,spinnerDoctorDegree;
-    Spinner spinnerOfficeCity,spinnerOfficeArea;
-    EditText etStreetAddress,StartTime,endTime,specialNotice;
+    private  EditText doctorRegistrationNo, doctorFirstName,doctorLastName;
+   private Spinner spinnerSpecialization,spinnerDoctorDegree;
+   private Spinner spinnerOfficeCity,spinnerOfficeArea;
+   private EditText etStreetAddress,specialNotice;
+   private String doctorId;
+   private TextView  startTimeTV,endTime;
 
     DatabaseReference databaseReference;
+    private FirebaseAuth mAuth;
 
     Button saveData;
     ProgressBar progressBarDoctorSaveData;
@@ -45,6 +54,9 @@ public class DoctorsInformationActivity extends AppCompatActivity implements Ada
         etStreetAddress=findViewById(R.id.et_officeStreetAddress);
         spinnerDoctorDegree=findViewById(R.id.spinner_Degrees);
 
+        mAuth=FirebaseAuth.getInstance();
+        doctorId=mAuth.getUid();
+
         final String city[]=getResources().getStringArray(R.array.division);
         final String degree[]=getResources().getStringArray(R.array.Degrees);
 
@@ -59,9 +71,22 @@ public class DoctorsInformationActivity extends AppCompatActivity implements Ada
         doctorRegistrationNo=findViewById(R.id.et_doctorsRegistrationNo);
         doctorFirstName=findViewById(R.id.et_doctor_firstName);
         doctorLastName=findViewById(R.id.et_Doctor_lastName);
-        StartTime=findViewById(R.id.et_startTime);
+        startTimeTV=findViewById(R.id.et_startTime);
         endTime=findViewById(R.id.et_endTime);
         specialNotice=findViewById(R.id.et_SpecialNotice);
+
+        startTimeTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentTimePicker(startTimeTV);
+            }
+        });
+        endTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentTimePicker(endTime);
+            }
+        });
 
 
         final String specialization[]=getResources().getStringArray(R.array.type_of_doctor);
@@ -152,17 +177,35 @@ public class DoctorsInformationActivity extends AppCompatActivity implements Ada
         String City=spinnerOfficeCity.getSelectedItem().toString() ;
         String Area=spinnerOfficeArea.getSelectedItem().toString() ;
         String StreetAddress= etStreetAddress.getText().toString().trim();
-        String startTime=StartTime.getText().toString().trim();
+        String startTime=startTimeTV.getText().toString().trim();
         String EndTime=endTime.getText().toString().trim();
         String special=specialNotice.getText().toString().trim();
 
 
 
 
-        Doctor doctor = new Doctor(id,fname,lname,specilization,degree,City,Area,StreetAddress,startTime,EndTime,special);
+        Doctor doctor = new Doctor(doctorId,id,fname,lname,specilization,degree,City,Area,StreetAddress,startTime,EndTime,special);
         databaseReference.child(specilization).push().setValue(doctor);
 
         Toast.makeText(this, "data saved", Toast.LENGTH_SHORT).show();
 
+    }
+    private void currentTimePicker(final TextView timeTV) {
+        final Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(calendar.HOUR);
+        int minute = calendar.get(calendar.MINUTE);
+        boolean is24HourFormat = false;
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                Calendar time = Calendar.getInstance();
+                time.set(Calendar.HOUR, hour);
+                time.set(Calendar.MINUTE, minute);
+                CharSequence charSequence = DateFormat.format("hh:mm a", time);
+                timeTV.setText(charSequence);
+            }
+        }, hour, minute, is24HourFormat);
+        timePickerDialog.show();
     }
 }

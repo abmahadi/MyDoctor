@@ -34,6 +34,7 @@ public class AppoinmentActivity extends AppCompatActivity {
     private LinearLayout apoinmentDate,apoinmentTime;
     private TextView dateTV,currentPatientId,timeTV;
     private EditText mobilenumberPatient;
+    private String doctorId;
 
 
 
@@ -51,6 +52,8 @@ public class AppoinmentActivity extends AppCompatActivity {
         init();
         doctorRegistrationNo = getIntent().getExtras().getString("drID");
         drRegistationNo.setText(doctorRegistrationNo);
+        
+        doctorId=getIntent().getStringExtra("doctorId");
        currentUser = mAuth.getCurrentUser().getEmail();
        currentPatientId.setText(currentUser);
 
@@ -111,7 +114,7 @@ public class AppoinmentActivity extends AppCompatActivity {
 
 
         Appoinment appoinmentData= new Appoinment(appoinmentId,drId,userId,mobileNumber,date,time,appoinmentStatus);
-        databaseReference.child(drId).child(appoinmentId).setValue(appoinmentData);
+        databaseReference.child(doctorId).child(appoinmentId).setValue(appoinmentData);
 
         Toast.makeText(this, "Appointment Request Send", Toast.LENGTH_SHORT).show();
 

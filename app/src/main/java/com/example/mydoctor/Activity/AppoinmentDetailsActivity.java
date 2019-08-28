@@ -38,7 +38,8 @@ public class AppoinmentDetailsActivity extends AppCompatActivity {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reference.child("AppoinmentData").child(drId).child(appoinmentId).setValue(null);
+                reference.child("AppoinmentData").child(id).child(appoinmentId).setValue(null);
+                reference.keepSynced(true);
 
                 Toast.makeText(AppoinmentDetailsActivity.this, "Appoinment Delete", Toast.LENGTH_SHORT).show();
             }
@@ -62,7 +63,8 @@ public class AppoinmentDetailsActivity extends AppCompatActivity {
 
                 Appoinment appoinmentData= new Appoinment(currentAppoinmentId,drId,email.getText().toString(),mobileNumber.getText().toString(),date.getText().toString(),time.getText().toString(),appoinmentStatus);
                 reference.child("ApprovedAppoinmentData").child(id).child(date.getText().toString()).child(currentAppoinmentId).setValue(appoinmentData);
-                reference.child("AppoinmentData").child(drId).child(appoinmentId).setValue(null);
+                reference.child("AppoinmentData").child(id).child(appoinmentId).setValue(null);
+                reference.keepSynced(true);
 
                 Toast.makeText(AppoinmentDetailsActivity.this, "Appoinment Approve", Toast.LENGTH_SHORT).show();
 

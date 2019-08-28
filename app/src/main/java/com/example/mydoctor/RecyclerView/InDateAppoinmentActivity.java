@@ -1,4 +1,4 @@
-package com.example.mydoctor;
+package com.example.mydoctor.RecyclerView;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.mydoctor.Adapter.AppoinmentAdapter;
 import com.example.mydoctor.Class.Appoinment;
-import com.example.mydoctor.RecyclerView.AppoinmentListActivity;
+import com.example.mydoctor.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

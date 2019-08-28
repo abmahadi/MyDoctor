@@ -8,10 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.mydoctor.InDateAppoinmentActivity;
+import com.example.mydoctor.RecyclerView.InDateAppoinmentActivity;
 import com.example.mydoctor.RecyclerView.AppoinmentListActivity;
 import com.example.mydoctor.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,16 +25,24 @@ public class DoctorsMenuActivity extends AppCompatActivity {
 
     private Button doctorsInformation;
     private Button doctorsAppoinments,inDateAppoinmentCheck;
-    private EditText drIdEt,dateEt;
+
+    private FirebaseAuth mAuth;
+
+    private String doctorId;
+
+    private TextView dateEt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors_infirmation_edit);
 
+        mAuth=FirebaseAuth.getInstance();
+        doctorId=mAuth.getUid();
+
         doctorsInformation=findViewById(R.id.btn_Doctors_Information);
         doctorsAppoinments =findViewById(R.id.btn_Doctors_Appoinment);
-        drIdEt =findViewById(R.id.doctorIdEt);
+
         inDateAppoinmentCheck= findViewById(R.id.btn_Doctors_Appoinment_Date);
         dateEt =findViewById(R.id.dateET);
 
@@ -46,6 +57,8 @@ public class DoctorsMenuActivity extends AppCompatActivity {
         doctorsAppoinments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
 
                 openAppointmentListActivity();
             }
@@ -63,6 +76,13 @@ public class DoctorsMenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DoctorsMenuActivity.this, InDateAppoinmentActivity.class);
                 intent.putExtra("date",dateEt.getText().toString());
+
+                if(dateEt.getText().toString().isEmpty())
+                {
+                    Toast.makeText(DoctorsMenuActivity.this, "Select a date", Toast.LENGTH_SHORT).show();
+                }
+                else
+
                 startActivity(intent);
             }
         });
@@ -74,8 +94,8 @@ public class DoctorsMenuActivity extends AppCompatActivity {
 
         Intent intent= new Intent(this, AppoinmentListActivity.class);
 
-        String drId = drIdEt.getText().toString();
-        intent.putExtra("drId",drId);
+
+        intent.putExtra("drId",doctorId);
         startActivity(intent);
     }
 

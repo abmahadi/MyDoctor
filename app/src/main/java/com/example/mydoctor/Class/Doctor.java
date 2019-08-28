@@ -1,6 +1,7 @@
 package com.example.mydoctor.Class;
 
 public class Doctor {
+    private String doctorId;
     private String doctorRegistrationNo;
     private String firstName;
     private String lastName;
@@ -16,7 +17,8 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(String doctorRegistrationNo, String firstName, String lastName, String specialization, String degree, String city, String area, String street, String startTime, String endTime, String specialNotice) {
+    public Doctor(String doctorId, String doctorRegistrationNo, String firstName, String lastName, String specialization, String degree, String city, String area, String street, String startTime, String endTime, String specialNotice) {
+        this.doctorId = doctorId;
         this.doctorRegistrationNo = doctorRegistrationNo;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,6 +30,14 @@ public class Doctor {
         this.startTime = startTime;
         this.endTime = endTime;
         this.specialNotice = specialNotice;
+    }
+
+    public String getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(String doctorId) {
+        this.doctorId = doctorId;
     }
 
     public String getDoctorRegistrationNo() {
