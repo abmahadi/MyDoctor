@@ -19,6 +19,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Add Information"
+            android:textColor="#FFFFFF"
             android:textAllCaps="false"
             android:background="@color/colorPrimary"
             android:padding="10dp"
@@ -43,6 +44,7 @@
             android:layout_height="wrap_content"
             android:text="Check Unapproved Appoinments"
             android:textAllCaps="false"
+            android:textColor="#FFFFFF"
             android:background="@color/colorPrimary"
             android:padding="5dp"
             android:textStyle="bold"
@@ -73,6 +75,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Check  Appoinments"
+            android:textColor="#FFFFFF"
             android:textAllCaps="false"
             android:background="@color/colorPrimary"
             android:padding="5dp"
@@ -80,6 +83,20 @@
             android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
+
+
+
+
+
+
+    <ImageView
+
+        android:layout_gravity="center"
+
+        android:layout_marginTop="100dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/state"></ImageView>
 
 
 

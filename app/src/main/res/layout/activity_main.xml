@@ -11,7 +11,7 @@
     tools:context=".Activity.PatientLoginActivity">
     
     <ImageView
-        android:src="@drawable/dr_image"
+        android:src="@drawable/patient"
         android:layout_width="wrap_content"
         android:layout_height="70dp" />
     
@@ -102,6 +102,14 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:layout_gravity="center"/>
+
+
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/state"></ImageView>
+
 
 
 </LinearLayout>
